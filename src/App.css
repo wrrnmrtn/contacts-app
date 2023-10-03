@@ -1,38 +1,166 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f7f7f7;
+  font-family: "Roboto", sans-serif;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  padding: 2rem 2rem;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+}
+
+.App-header h1{
+  font-size: 36px;
+  font-weight: 800;
+  background: -webkit-linear-gradient(rgba(153,62,45,1), rgba(116,2,2,1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.App-header p{
+  color: #cccccc;
+  margin: 1rem 1.5rem;
+}
+
+.contact-table{
+  color: rgb(99, 99, 99);
+  text-align: center;
+}
+
+.headings, .contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.heading {
+  flex-basis: 33.333%;
+  font-weight: bold;
+}
+
+.contacts {
+  border-radius: 1rem;
+  background-color: white;
+  color:#999;
+  margin-bottom: 10px;
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.contacts:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 2px 5px 15px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 2px 5px 15px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 5px 15px 0px rgba(0,0,0,0.5);
+}
+
+.info{
+  color:#707070;
+  text-align: left;
+}
+
+span {
+  flex-basis: 33.333%;
+}
+
+.User-list{
+  display: none;
+}
+
+/* Add smooth transition for hover effects */
+a,
+button {
+  transition: all 0.3s ease;
+}
+
+/* Button styling */
+button {
+  background-color: #282c34;
   color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #313438;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 800px){
+  .Contact-container{
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .User-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .User-item-hide {
+    background-color: white;
+    max-height: 0;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+    overflow: hidden;
+  }
+  
+  .User-item-show {
+    background-color: white;
+    border-radius: 5px;
+    padding: 1.5rem 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .User-item-show h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #282c34;
+  }
+  
+  .User-item-show h5 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #999;
+    display: flex;
+    align-items: center;
+  }
+  
+  .User-item-show h5 svg {
+    margin-right: 0.5rem;
+  }
+  
+  .User-item-show:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
   }
 }
